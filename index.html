@@ -23,16 +23,51 @@
           <div class="progress-circle">
             <div class="inner-circle">
               <div class="main-text">00:00</div>
-              <div class="alert-text">PAUSE</div>
+              <div class="alert-text">RESTART</div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="settings">
-      <a href="">
-        <i class="fa-solid fa-gear"></i>
-      </a>
+        <button class="settings-gear">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+    </div>
+  </div>
+  <div class="popup">
+    <div class="popup-header">
+      <div class="settings-text">Settings</div>
+      <div class="close-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+    </div>
+    <hr>
+    <div class="popup-content">
+      <div class="subheader">Time (Minutes)</div>
+      <div class="form">
+        <form action="post" >
+          <label for="pomodoro-input">pomodoro</label>
+          <input type="number" name="pomodoro-input" id="pomodoro-input">
+
+          <label for="short-break-input">short break</label>
+          <input type="number" name="short-break-input" id="pomodoro-input">
+
+          <label for="long-break-input">long break</label>
+          <input type="number" name="long-break-input" id="long-break-input">
+
+          <hr>
+
+          <div class="select-fonts">
+            <div class="font-label">Font</div>
+            <div class="select-font-btn">
+              <buttton class="kumbh-sans">Aa</buttton>
+              <button class="roboto-slab">Aa</button>
+              <button class="space-mono">Aa</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </body>

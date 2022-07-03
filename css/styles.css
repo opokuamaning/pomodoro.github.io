@@ -38,7 +38,7 @@ div.timer-length{
     flex-direction: row;
     justify-content: center;
     color: var(--off-white);
-    background: linear-gradient(90deg, var(--blue-black), var(--navy-blue) 100%);
+    background-color: var(--navy-blue);
     width: 23%;
     height: 50px;
     margin-left: auto;
@@ -63,12 +63,13 @@ div.pomodoro{
 div.outer-circle{
     width: 400px;
     height: 400px;
-    background-color: var(--blue-black);
+    background: linear-gradient(310deg, var(--blue-black) 30%, var(--navy-blue) 70%);
     border-radius: 50%;
     margin: 70px auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 5px 5px 50px 15px #303456, 5px 5px 50px 10px #0b0e2d;
 }
 div.second-outer-circle{
     width: 360px;
@@ -82,7 +83,8 @@ div.second-outer-circle{
 div.progress-circle{
     width: 330px;
     height: 330px;
-    background-color: var(--orange);
+    /* background-color: var(--orange); */
+    background: conic-gradient(var(--orange) 3.6deg, var(--navy-blue) 0deg);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -99,6 +101,7 @@ div.inner-circle{
     align-items: center;
 }
 div.main-text{
+    font-family: "Roboto Slab";
     font-size: 100px;
     color: var(--white);
     margin: 20px auto;
@@ -107,4 +110,13 @@ div.alert-text{
     font-size: 20px;
     color: var(--white);
     letter-spacing: 10px;
+}
+.settings-gear{
+    background-color: var(--blue-black);
+    border: none;
+    cursor: pointer;
+}
+.fa-gear{
+    color: var(--off-white);
+    font-size: 30px;
 }
