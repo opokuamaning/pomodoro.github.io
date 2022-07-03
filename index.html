@@ -3,30 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="./css/styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   
   <title>Frontend Mentor | Pomodoro app</title>
 </head>
 <body>
-  pomodoro
-  short break
-  long break
-
-  start 
-  pause
-  restart
-
-  Settings
-
-  Time (minutes)
-  pomodoro
-  short break
-  long break
-
-  Font
-  Color
-
-  Apply
+  <div class="container">
+    <div class="header">pomodoro</div>
+    <div class="timer-length">
+      <div class="pomodoro">pomodoro</div>
+      <div class="short-break">short break</div>
+      <div class="long-break">long break</div>
+    </div>
+    <div class="circle">
+      <div class="outer-circle">
+        <div class="second-outer-circle">
+          <div class="progress-circle">
+            <div class="inner-circle">
+              <div class="main-text">00:00</div>
+              <div class="alert-text">PAUSE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="settings">
+      <a href="">
+        <i class="fa-solid fa-gear"></i>
+      </a>
+    </div>
+  </div>
 </body>
 </html>

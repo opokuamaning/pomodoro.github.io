@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root{
+    --orange: #F87070;
+    --cyan: #70f3f8;
+    --puple: #D881F8;
+    --ash: #D7E0FF;
+    --blue-black: #1E213F;
+    --white: #FFFFFF;
+    --off-white: #EFF1FA;
+    --navy-blue: #161932;
+}
+html{
+    scroll-behavior: smooth;
+
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Kumbh Sans", "sans-serif";
+}
+body{
+    width: 100%;
+    background-color: var(--blue-black);
+    text-align: center;
+}
+.container{
+    margin-top: 30px;
+}
+div.header{
+    color: var(--white);
+    font-size: 28px;
+    font-weight: 800;
+    margin: 30px;
+}
+div.timer-length{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: var(--off-white);
+    background: linear-gradient(90deg, var(--blue-black), var(--navy-blue) 100%);
+    width: 23%;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+}
+div.pomodoro, div.short-break, div.long-break{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 80%;
+    margin: auto;
+    border-radius: 30px;
+    font-weight: 600;
+}
+div.pomodoro{
+    background-color: var(--orange);
+    color: #161932;
+}
+div.outer-circle{
+    width: 400px;
+    height: 400px;
+    background-color: var(--blue-black);
+    border-radius: 50%;
+    margin: 70px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.second-outer-circle{
+    width: 360px;
+    height: 360px;
+    background-color: var(--navy-blue);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.progress-circle{
+    width: 330px;
+    height: 330px;
+    background-color: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.inner-circle{
+    width: 310px;
+    height: 310px;
+    background-color: var(--navy-blue);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div.main-text{
+    font-size: 100px;
+    color: var(--white);
+    margin: 20px auto;
+}
+div.alert-text{
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: 10px;
+}
