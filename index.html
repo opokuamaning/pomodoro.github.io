@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Pomodoro app</title>
 </head>
+
 <body>
   <div class="container">
     <div class="header">pomodoro</div>
@@ -30,9 +32,9 @@
       </div>
     </div>
     <div class="settings">
-        <button class="settings-gear">
-          <i class="fa-solid fa-gear"></i>
-        </button>
+      <button class="settings-gear">
+        <i class="fa-solid fa-gear"></i>
+      </button>
     </div>
   </div>
   <div class="popup">
@@ -42,33 +44,49 @@
         <i class="fa-solid fa-xmark"></i>
       </div>
     </div>
-    <hr>
+    <hr class="hr-header">
     <div class="popup-content">
       <div class="subheader">Time (Minutes)</div>
       <div class="form">
-        <form action="post" >
-          <label for="pomodoro-input">pomodoro</label>
-          <input type="number" name="pomodoro-input" id="pomodoro-input">
-
-          <label for="short-break-input">short break</label>
-          <input type="number" name="short-break-input" id="pomodoro-input">
-
-          <label for="long-break-input">long break</label>
-          <input type="number" name="long-break-input" id="long-break-input">
-
-          <hr>
-
-          <div class="select-fonts">
-            <div class="font-label">Font</div>
-            <div class="select-font-btn">
-              <buttton class="kumbh-sans">Aa</buttton>
-              <button class="roboto-slab">Aa</button>
-              <button class="space-mono">Aa</button>
-            </div>
+        <form action="post">
+          <div class="pomodoro-div">
+            <label for="pomodoro-input">pomodoro</label>
+            <input type="number" name="pomodoro-input" id="pomodoro-input">
+          </div>
+          <div class="short-break-div">
+            <label for="short-break-input">short break</label>
+            <input type="number" name="short-break-input" id="pomodoro-input">
+          </div>
+          <div class="long-break-div">
+            <label for="long-break-input">long break</label>
+            <input type="number" name="long-break-input" id="long-break-input">
           </div>
         </form>
+
+        <hr class="middle-hr">
+
+        <div class="select-fonts">
+          <div class="font-label">Font</div>
+          <div class="select-font-btn">
+            <button class="kumbh-sans">Aa</button>
+            <button class="roboto-slab">Aa</button>
+            <button class="space-mono">Aa</button>
+          </div>
+        </div>
+        <hr class="bottom-hr">
+        <div class="select-color">
+          <div class="color-label">Color</div>
+          <div class="select-color-btn">
+            <button class="orange-color"><i class="fa-solid fa-check"></i></button>
+            <button class="cyan-color"></button>
+            <button class="light-purple"></button>
+          </div>
+        </div>
+        <button class="apply">Apply</button>
+
+
       </div>
     </div>
-  </div>
 </body>
+
 </html>
