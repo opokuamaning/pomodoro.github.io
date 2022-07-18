@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-:root{
+
+:root {
     --orange: #F87070;
     --cyan: #70f3f8;
     --puple: #D881F8;
@@ -9,31 +10,37 @@
     --off-white: #EFF1FA;
     --navy-blue: #161932;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 
 }
-*{
+
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-family: "Kumbh Sans", "sans-serif";
 }
-body{
+
+body {
     width: 100%;
     background-color: var(--blue-black);
     text-align: center;
 }
-.container{
+
+.container {
     margin-top: 30px;
 }
-div.header{
+
+div.header {
     color: var(--white);
     font-size: 28px;
     font-weight: 800;
     margin: 30px;
 }
-div.timer-length{
+
+div.timer-length {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -45,7 +52,10 @@ div.timer-length{
     margin-right: auto;
     border-radius: 30px;
 }
-div.pomodoro, div.short-break, div.long-break{
+
+div.pomodoro,
+div.short-break,
+div.long-break {
     margin: 10px;
     display: flex;
     justify-content: center;
@@ -56,11 +66,13 @@ div.pomodoro, div.short-break, div.long-break{
     border-radius: 30px;
     font-weight: 600;
 }
-div.pomodoro{
+
+div.pomodoro {
     background-color: var(--orange);
     color: #161932;
 }
-div.outer-circle{
+
+div.outer-circle {
     width: 400px;
     height: 400px;
     background: linear-gradient(310deg, var(--blue-black) 30%, var(--navy-blue) 70%);
@@ -71,7 +83,8 @@ div.outer-circle{
     align-items: center;
     box-shadow: 5px 5px 50px 15px #303456, 5px 5px 50px 10px #0b0e2d;
 }
-div.second-outer-circle{
+
+div.second-outer-circle {
     width: 360px;
     height: 360px;
     background-color: var(--navy-blue);
@@ -80,7 +93,8 @@ div.second-outer-circle{
     justify-content: center;
     align-items: center;
 }
-div.progress-circle{
+
+div.progress-circle {
     width: 330px;
     height: 330px;
     /* background-color: var(--orange); */
@@ -90,7 +104,8 @@ div.progress-circle{
     justify-content: center;
     align-items: center;
 }
-div.inner-circle{
+
+div.inner-circle {
     width: 310px;
     height: 310px;
     background-color: var(--navy-blue);
@@ -100,71 +115,95 @@ div.inner-circle{
     justify-content: center;
     align-items: center;
 }
-div.main-text{
+
+div.main-text {
     font-family: "Roboto Slab";
     font-size: 100px;
     color: var(--white);
     margin: 20px auto;
 }
-div.alert-text{
+
+div.alert-text {
     font-size: 20px;
     color: var(--white);
     letter-spacing: 10px;
 }
-.settings-gear{
-    background-color: var(--blue-black);
-    border: none;
-    cursor: pointer;
-}
-.fa-gear{
-    color: var(--off-white);
-    font-size: 30px;
-}
-.popup{
+
+.popup {
     position: absolute;
     top: 50%;
     left: 50%;
     background-color: var(--white);
-    /* padding: 25px; */
     max-width: 600px;
     width: 100%;
     transform: translate(-50%, -50%);
     border-radius: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transition: top 0s 0.2s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0s 0.2s ease-in-out;
 }
-.popup .popup-header{
+
+.popup.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: top 0s 0.2s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0s 0.2s ease-in-out;
+}
+
+.popup .popup-header {
     display: flex;
     align-items: center;
     margin: 25px;
 }
-.popup .popup-header .settings-text{
+
+.popup .popup-header .settings-text {
     font-size: 28px;
     font-weight: 600;
 }
-.popup .popup-header .close-btn{
+
+.popup .popup-header .close-btn {
     position: absolute;
     top: 30px;
     right: 30px;
     font-size: 20px;
     cursor: pointer;
 }
-.popup .popup-header .close-btn i{
+
+.popup .popup-header .close-btn i {
     color: rgb(218, 218, 218);
 }
-hr{
+
+.settings-icon .fa-gear {
+    color: var(--off-white);
+    font-size: 40px;
+    cursor: pointer;
+}
+
+hr {
     margin-top: 20px;
     margin-bottom: 20px;
     border: 0.5px solid #ccc;
 }
-.hr-header{
+
+.hr-header {
     width: 100%;
 }
-.middle-hr, .bottom-hr{
+
+.middle-hr,
+.bottom-hr {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    
+
 }
-div.subheader, div.font-label, div.select-color{
+
+div.subheader,
+div.font-label,
+div.select-color {
     text-transform: uppercase;
     letter-spacing: 5px;
     font-weight: 600;
@@ -172,52 +211,72 @@ div.subheader, div.font-label, div.select-color{
     margin-left: 5%;
     margin-bottom: 25px;
 }
-form{
+
+form {
     display: flex;
     width: 90%;
     margin: 30px auto;
 }
-div > label{
+
+div>label {
     display: flex;
     align-items: flex-start;
     margin-bottom: 10px;
     color: #ccc;
 }
-div.pomodoro-div, div.short-break-div, div.long-break-div{
+
+div.pomodoro-div,
+div.short-break-div,
+div.long-break-div {
     display: flex;
     flex-direction: column;
     margin-right: 30px;
 }
-input[type=number]{
+
+input[type=number] {
     width: 160px;
     height: 50px;
     border: none;
     background-color: var(--off-white);
     border-radius: 8px;
 }
+
 input[type=number]::-webkit-inner-spin-button {
     opacity: 1;
-  }
-.select-fonts, .select-color{
+}
+
+.select-fonts,
+.select-color {
     display: flex;
     margin-top: 40px;
 }
-div.select-color{
+
+div.select-color {
     margin-bottom: 40px;
 }
-div.font-label, div.select-color{
+
+div.font-label,
+div.select-color {
     text-transform: uppercase;
     display: flex;
     align-items: center;
     height: 40px;
 }
-div.select-font-btn, div.select-color-btn{
+
+div.select-font-btn,
+div.select-color-btn {
     position: absolute;
     right: 5%;
     display: flex;
     align-items: center;
 }
-button.kumbh-sans, button.roboto-slab, button.space-mono, button.orange-color, button.cyan-color, button.light-purple{
+
+button.kumbh-sans,
+button.roboto-slab,
+button.space-mono,
+button.orange-color,
+button.cyan-color,
+button.light-purple {
     width: 40px;
     height: 40px;
     font-size: 17px;
@@ -228,30 +287,37 @@ button.kumbh-sans, button.roboto-slab, button.space-mono, button.orange-color, b
     cursor: pointer;
     background-color: var(--off-white);
 }
-button.kumbh-sans{
+
+button.kumbh-sans {
     background-color: black;
     color: var(--white);
     font-family: "Kumbh Sans", "sans-serif";
     font-weight: 600;
 }
-button.roboto-slab{
+
+button.roboto-slab {
     font-family: "Roboto Slab";
     color: #333;
 }
-button.space-mono{
+
+button.space-mono {
     font-family: "Space Mono";
     color: #333;
 }
-button.orange-color{
+
+button.orange-color {
     background-color: var(--orange);
 }
-button.cyan-color{
+
+button.cyan-color {
     background-color: var(--cyan);
 }
-button.light-purple{
+
+button.light-purple {
     background-color: var(--puple);
 }
-button.apply{
+
+button.apply {
     width: 150px;
     height: 50px;
     font-size: 20px;
