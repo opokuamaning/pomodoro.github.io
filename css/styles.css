@@ -151,6 +151,18 @@ body {
     display: flex;
     justify-content: center;
 }
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.6);
+    background-color: var(--white);
+    color: var(--blue-black);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 380px;
+    width: 100%;
+}
 
 @media screen and (max-width: 449px) {
     body {
@@ -193,7 +205,7 @@ body {
     
         /* box-shadow: -11px -7px 45px 11px rgba(141, 174, 251, 0.11); */
         /* -webkit-box-shadow: 19px -4px 177px -68px #303456;
-        -moz-box-shadow: 19px -4px 177px -68px #303456; */ */
+        -moz-box-shadow: 19px -4px 177px -68px #303456; */ 
     }
     .circle {
         width: 300px;
@@ -230,4 +242,8 @@ body {
         margin: 5px;
         font-family: "Roboto Slab", sans-serif;
     } 
+    .popup{
+        transform: translate(-50%, -50%);
+        max-width: 340px;
+    }
 }
