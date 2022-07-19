@@ -157,13 +157,139 @@ body {
     left: 50%;
     transform: translate(-50%, -50%) scale(1.6);
     background-color: var(--white);
-    color: var(--blue-black);
-    padding: 25px;
+    color: #101326;
+    /* padding: 25px; */
+    font-size: 14px;
     border-radius: 15px;
     max-width: 380px;
     width: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+.popup.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+.popup .popup-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    border-bottom: 1px solid #DCDADA;
+
+}
+.popup-header span{
+    font-size: 20px;
+    font-weight: 900;
+}
+.popup-header .close-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #7B7C8D;
+}
+.popup .popup-content{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.popup-content .subheader{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+.popup-content form{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #DCDADA;
 }
 
+.popup-content form label{
+    font-size: 10px;
+    margin-bottom: 15px;
+    color: #9495A3;
+    font-weight: 500;
+}
+.popup-content form input[type=number]{
+    width: 102px;
+    height: 30px;
+    border: none;
+    background-color: #EBEDF9;
+    border-radius: 7px;
+}
+.select-fonts, .select-color{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #DCDADA;
+}
+.select-color{
+    border-bottom: none;
+}
+.select-fonts .font-label, .select-color .color-label{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+.select-font-btn, .select-color-btn{
+    display: flex;
+}
+.kumbh-sans, .roboto-slab, .space-mono, .orange-color, .cyan-color, .light-purple{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    font-weight: 600;
+    background-color: #EBEDF9;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+.kumbh-sans{
+    font-family: "Kumbh Sans";
+    color: var(--white);
+    background-color: var(--navy-blue);
+}
+.roboto-slab{
+    font-family: "Robot Slab";
+    font-weight: 300;
+}
+.space-mono{
+    font-family: "Sapce Mono";
+}
+.orange-color{
+    background-color: var(--orange);
+}
+.cyan-color{
+    background-color: var(--cyan);
+}
+.light-purple{
+    background-color: var(--puple);
+}
+.popup-content .apply{
+    position: absolute;
+    left: 50%;
+    bottom: -8%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--orange);
+    color: var(--white);
+}
 @media screen and (max-width: 449px) {
     body {
         width: 100%;
@@ -198,14 +324,6 @@ body {
     .shadow {
         width: 300px;
         height: 300px;
-        /* border-radius: 50%;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        box-shadow: -35px -28px 48px 11px rgba(51, 64, 140, 0.4), 10px 14px 26px 0px rgba(0, 0, 0, 0.3);
-    
-        /* box-shadow: -11px -7px 45px 11px rgba(141, 174, 251, 0.11); */
-        /* -webkit-box-shadow: 19px -4px 177px -68px #303456;
-        -moz-box-shadow: 19px -4px 177px -68px #303456; */ 
     }
     .circle {
         width: 300px;
@@ -245,5 +363,36 @@ body {
     .popup{
         transform: translate(-50%, -50%);
         max-width: 340px;
+    }
+    .popup-content form{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #DCDADA;
+    }
+    .pomodoro-div, .short-break-div, .long-break-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+    form label{
+        font-size: 10px;
+        color: #9495A3;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .popup-content form input[type=number]{
+        width: 160px;
+        height: 40px;
+        border: none;
+        background-color: #EBEDF9;
+        border-radius: 7px;
+    }
+    .popup-content .apply{
+        bottom: -6%;
     }
 }
