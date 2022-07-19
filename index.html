@@ -14,18 +14,26 @@
 <body>
   <div class="container">
     <div class="header">pomodoro</div>
-    <div class="timer-length">
+    <div class="timer-selector">
       <div class="pomodoro">pomodoro</div>
       <div class="short-break">short break</div>
       <div class="long-break">long break</div>
     </div>
-    <div class="circle">
-      <div class="outer-circle">
-        <div class="second-outer-circle">
+    <div class="shadow">
+      <div class="circle">
+        <div class="outer-circle">
           <div class="progress-circle">
             <div class="inner-circle">
-              <div class="main-text">00:00</div>
-              <div class="alert-text">RESTART</div>
+              <div class="timer">
+                <div class="minutes">00</div>
+                <div class="seperator">:</div>
+                <div class="seconds">00</div>
+              </div>
+              <div class="alert-text">
+                <div class="alert-text-restart">RESTART</div>
+                <div class="alert-text-start">START</div>
+                <div class="alert-text-pause">PAUSE</div>
+              </div>
             </div>
           </div>
         </div>
@@ -34,8 +42,8 @@
     <div class="settings-icon settings-gear">
       <i class="fa-solid fa-gear"></i>
     </div>
-  </div>
-  <div class="popup">
+
+    <div class="popup">
     <div class="popup-header">
       <div class="settings-text">Settings</div>
       <div class="close-btn">
@@ -84,7 +92,8 @@
       </div>
       
     </div>
-    <script src="js/main.js"></script>
+  </div>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
