@@ -134,11 +134,13 @@ body {
     font-family: "Roboto Slab", sans-serif;
     letter-spacing: 5px;
 }
+
 .alert-text-start,
 .alert-text-pause,
-.alert-text-restart{
+.alert-text-restart {
     letter-spacing: 5px;
 }
+
 .alert-text-pause,
 .alert-text-start {
     display: none;
@@ -151,7 +153,12 @@ body {
     display: flex;
     justify-content: center;
 }
-.popup{
+
+.fa-gear:hover {
+    color: var(--ash);
+}
+
+.popup {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -165,12 +172,16 @@ body {
     width: 100%;
     opacity: 0;
     pointer-events: none;
+    transition: top 0s 0s ease-in-out, opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out;
 }
-.popup.show{
+
+.popup.show {
     opacity: 1;
     pointer-events: auto;
+    transition: top 0s 0s ease-in-out, opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out;
 }
-.popup .popup-header{
+
+.popup .popup-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -178,24 +189,28 @@ body {
     border-bottom: 1px solid #DCDADA;
 
 }
-.popup-header span{
+
+.popup-header span {
     font-size: 20px;
     font-weight: 900;
 }
-.popup-header .close-btn{
+
+.popup-header .close-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     color: #7B7C8D;
 }
-.popup .popup-content{
+
+.popup .popup-content {
     padding: 25px;
     display: flex;
     flex-direction: column;
-    
+
 }
-.popup-content .subheader{
+
+.popup-content .subheader {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -205,7 +220,8 @@ body {
     font-weight: 600;
     letter-spacing: 5px;
 }
-.popup-content form{
+
+.popup-content form {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -213,20 +229,24 @@ body {
     border-bottom: 1px solid #DCDADA;
 }
 
-.popup-content form label{
+.popup-content form label {
     font-size: 10px;
+    font-weight: 600;
     margin-bottom: 15px;
     color: #9495A3;
     font-weight: 500;
 }
-.popup-content form input[type=number]{
+
+.popup-content form input[type=number] {
     width: 102px;
     height: 30px;
     border: none;
     background-color: #EBEDF9;
     border-radius: 7px;
 }
-.select-fonts, .select-color{
+
+.select-fonts,
+.select-color {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -234,19 +254,30 @@ body {
     padding-bottom: 15px;
     border-bottom: 1px solid #DCDADA;
 }
-.select-color{
+
+.select-color {
     border-bottom: none;
 }
-.select-fonts .font-label, .select-color .color-label{
+
+.select-fonts .font-label,
+.select-color .color-label {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 5px;
 }
-.select-font-btn, .select-color-btn{
+
+.select-font-btn,
+.select-color-btn {
     display: flex;
 }
-.kumbh-sans, .roboto-slab, .space-mono, .orange-color, .cyan-color, .light-purple{
+
+.kumbh-sans,
+.roboto-slab,
+.space-mono,
+.orange-color,
+.cyan-color,
+.light-purple {
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -256,28 +287,39 @@ body {
     margin: 5px;
     cursor: pointer;
 }
-.kumbh-sans{
+
+.kumbh-sans {
     font-family: "Kumbh Sans";
     color: var(--white);
     background-color: var(--navy-blue);
 }
-.roboto-slab{
+
+.roboto-slab {
     font-family: "Robot Slab";
     font-weight: 300;
 }
-.space-mono{
+
+.space-mono {
     font-family: "Sapce Mono";
 }
-.orange-color{
+
+.roboto-slab:hover {
+    border: 2px solid #EBEDF9;
+}
+
+.orange-color {
     background-color: var(--orange);
 }
-.cyan-color{
+
+.cyan-color {
     background-color: var(--cyan);
 }
-.light-purple{
+
+.light-purple {
     background-color: var(--puple);
 }
-.popup-content .apply{
+
+.popup-content .apply {
     position: absolute;
     left: 50%;
     bottom: -8%;
@@ -290,6 +332,7 @@ body {
     background-color: var(--orange);
     color: var(--white);
 }
+
 @media screen and (max-width: 449px) {
     body {
         width: 100%;
@@ -321,30 +364,33 @@ body {
         align-items: center;
         cursor: pointer;
     }
+
     .shadow {
         width: 300px;
         height: 300px;
     }
+
     .circle {
         width: 300px;
         height: 300px;
         background-color: var(--blue-black);
         border-radius: 50%;
     }
+
     .outer-circle {
         width: 270px;
         height: 270px;
         background-color: var(--navy-blue);
         border-radius: 50%;
     }
-    
+
     .progress-circle {
         width: 240px;
         height: 240px;
         background: conic-gradient(var(--orange) 260deg, var(--navy-blue) 0deg);
         border-radius: 50%;
     }
-    
+
     .inner-circle {
         width: 230px;
         height: 230px;
@@ -355,29 +401,36 @@ body {
         align-items: center;
         justify-content: center;
     }
+
     .timer {
         font-size: 65px;
         margin: 5px;
         font-family: "Roboto Slab", sans-serif;
-    } 
-    .popup{
+    }
+
+    .popup {
         transform: translate(-50%, -50%);
         max-width: 340px;
     }
-    .popup-content form{
+
+    .popup-content form {
         display: flex;
         flex-direction: column;
         padding-bottom: 15px;
         border-bottom: 1px solid #DCDADA;
     }
-    .pomodoro-div, .short-break-div, .long-break-div{
+
+    .pomodoro-div,
+    .short-break-div,
+    .long-break-div {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         padding-bottom: 10px;
     }
-    form label{
+
+    form label {
         font-size: 10px;
         color: #9495A3;
         font-weight: 500;
@@ -385,14 +438,23 @@ body {
         justify-content: center;
         align-items: center;
     }
-    .popup-content form input[type=number]{
+
+    .popup-content form input[type=number] {
         width: 160px;
         height: 40px;
         border: none;
         background-color: #EBEDF9;
         border-radius: 7px;
     }
-    .popup-content .apply{
+
+    .popup-content .apply {
         bottom: -6%;
+    }
+    .select-fonts, .select-color{
+        display: flex;
+        flex-direction: column;
+    }
+    .font-label, .color-label{
+        padding-bottom: 15px;
     }
 }
