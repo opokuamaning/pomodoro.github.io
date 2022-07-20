@@ -109,7 +109,7 @@ body {
 .progress-circle {
     width: 330px;
     height: 330px;
-    background: conic-gradient(var(--orange) 260deg, var(--navy-blue) 0deg);
+    background: conic-gradient(var(--orange) 360deg, var(--navy-blue) 0deg);
     border-radius: 50%;
 }
 
@@ -373,22 +373,16 @@ body {
     .circle {
         width: 300px;
         height: 300px;
-        background-color: var(--blue-black);
-        border-radius: 50%;
     }
 
     .outer-circle {
         width: 270px;
         height: 270px;
-        background-color: var(--navy-blue);
-        border-radius: 50%;
     }
 
     .progress-circle {
         width: 240px;
         height: 240px;
-        background: conic-gradient(var(--orange) 260deg, var(--navy-blue) 0deg);
-        border-radius: 50%;
     }
 
     .inner-circle {
