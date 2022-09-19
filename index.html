@@ -13,82 +13,97 @@
 
 <body>
   <div class="container">
-    <div class="header">pomodoro</div>
-    <div class="timer-selector">
-      <div class="pomodoro">pomodoro</div>
-      <div class="short-break">short break</div>
-      <div class="long-break">long break</div>
-    </div>
-    <div class="shadow">
-      <div class="circle">
-        <div class="outer-circle">
-          <div class="progress-circle">
-            <div class="inner-circle">
-              <div class="timer">
-                <div class="minutes">00:00</div>
-                <!-- <div class="seperator">:</div>
-                <div class="seconds">00</div> -->
-              </div>
-              <div class="alert-text">
-                <div class="alert-text-restart">RESTART</div>
-                <div class="alert-text-start">START</div>
-                <div class="alert-text-pause">PAUSE</div>
+    <div class="sub-container">
+      <div class="header">pomodoro</div>
+      <div class="timer-selector" id="select-mode">
+        <button class="select-time-type activeMode" id="btnPomodoro" >pomodoro</button>
+        <button class="select-time-type" id="btnShortBreak">short break</button>
+        <button class="select-time-type" id="btnLongBreak">long break</button>
+      </div>
+      <div class="shadow">
+        <div class="circle">
+          <div class="outer-circle">
+            <div class="progress-circle changeToColor" id="progressCircle">
+              <div class="inner-circle">
+                <div class="timer pomodoro">
+                  <div class="minutes">25</div>
+                  <div class="seperator">:</div>
+                  <div class="seconds">00</div>
+                </div>
+                <!-- <div class="timer shortbreak">
+                  <div class="minutes">1</div>
+                  <div class="seperator">:</div>
+                  <div class="seconds">00</div>
+                </div>
+                <div class="timer longbreak">
+                  <div class="minutes">1</div>
+                  <div class="seperator">:</div>
+                  <div class="seconds">00</div>
+                </div> -->
+                <div class="alert-text">
+                  <div class="alert-text-start start" data-action="startTime" id="start-text">START</div>
+                  <!-- <div class="alert-text-restart restart" id="restartText">RESTART</div>
+                  <div class="alert-text-pause pause" id="pauseText">PAUSE</div> -->
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="settings-icon settings-gear">
+        <i class="fa-solid fa-gear"></i>
+      </div>
     </div>
-    <div class="settings-icon settings-gear">
-      <i class="fa-solid fa-gear"></i>
-    </div>
-    
     <div class="popup">
-    <div class="popup-header">
-      <span class="settings-text">Settings</span>
-      <div class="close-btn">
-        <i class="fa-solid fa-xmark"></i>
+      <div class="popup-header">
+        <span class="settings-text">Settings</span>
+        <div class="close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
       </div>
-    </div>
-    <div class="popup-content">
-      <span class="subheader">Time (Minutes)</span>
-      <div class="form">
-        <form action="post">
-          <div class="pomodoro-div">
-            <label for="pomodoro-input">pomodoro</label>
-            <input type="number" name="pomodoro-input" id="pomodoro-input">
+      <div class="popup-content">
+        <span class="subheader">Time (Minutes)</span>
+        <div class="form">
+          <form id="form" method="post">
+            <div class="pomodoro-div">
+              <label for="pomodoro-input">pomodoro</label>
+              <input type="number" name="pomodoro" id="pomodoro-input" value="25" required>
+            </div>
+            <div class="short-break-div">
+              <label for="short-break-input">short break</label>
+              <input type="number" name="shortBreak" id="short-break-input" value="5" required>
+            </div>
+            <div class="long-break-div">
+              <label for="long-break-input">long break</label>
+              <input type="number" name="longBreak" id="long-break-input" value="15" required>
+            </div>
+            <button class="apply" type="submit" data-action="start">Apply</button>
+          </form>
+          <div class="select-fonts">
+            <div class="font-label">Font</div>
+            <div class="select-font-btn">
+              <button class="kumbh-sans-btn" onclick="changeFont('kumbh')" id="checkKumbh">Aa</button>
+              <button class="roboto-slab-btn" onclick="changeFont('roboto')" id="checkRoboto">Aa</button>
+              <button class="space-mono-btn" onclick="changeFont('space')" id="checkSpace">Aa</button>
+            </div>
           </div>
-          <div class="short-break-div">
-            <label for="short-break-input">short break</label>
-            <input type="number" name="short-break-input" id="short-input">
-          </div>
-          <div class="long-break-div">
-            <label for="long-break-input">long break</label>
-            <input type="number" name="long-break-input" id="long-break-input">
-          </div>
-        </form>
-        <div class="select-fonts">
-          <div class="font-label">Font</div>
-          <div class="select-font-btn">
-            <button class="kumbh-sans">Aa</button>
-            <button class="roboto-slab">Aa</button>
-            <button class="space-mono">Aa</button>
+          <div class="select-color">
+            <div class="color-label">Color</div>
+            <div class="select-color-btn">
+              <button class=" orange-btn"  id="btnOrange">
+                <i class="fa-solid fa-check" id="checkOrange"></i>
+              </button>
+              <button class="activeColor cyan-btn" id="btnCyan"><i class="fa-solid fa-check"
+                  id="checkCyan"></i></button>
+              <button class="purple-btn" id="btnPurple"><i class="fa-solid fa-check"
+                  id="checkPurple"></i>
+                </button>
+            </div>
           </div>
         </div>
-        <div class="select-color">
-          <div class="color-label">Color</div>
-          <div class="select-color-btn">
-            <button class="orange-color"><i class="fa-solid fa-check"></i></button>
-            <button class="cyan-color"></button>
-            <button class="light-purple"></button>
-          </div>
-        </div>
-        <button class="apply">Apply</button>
       </div>
-      
     </div>
   </div>
-</div>
   <script src="js/main.js"></script>
 </body>
 

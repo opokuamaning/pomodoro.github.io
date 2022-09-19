@@ -9,13 +9,17 @@
     --white: #FFFFFF;
     --off-white: #EFF1FA;
     --navy-blue: #161932;
-}
+    --default-color: #F87070;
+    --kumbh-san: "Kumbh Sans", sans-serif;
+    --space-mono: "Space Mono", monospace;
+    --robot-slab: "Roboto Slab", sans-serif;
+    --default-font: "Kumbh Sans", sans-serif;;
+}    
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Kumbh Sans", sans-serif;
 }
 
 body {
@@ -26,52 +30,72 @@ body {
     padding: 20px;
     background-color: var(--blue-black);
     color: var(--white);
+    font-family: "Kumbh Sans", sans-serif;
 }
 
 .header {
     display: flex;
     justify-content: center;
-    font-size: 50px;
-    color: var(--off-white);
+    font-size: 30px;
+    color: var(--ash);
     font-weight: 900;
     margin: 45px;
+    margin-top: -90px;
+    /* margin-bottom: 30px; */
 }
 
-.timer-selector {
+.sub-container{
+    font-family: "Kumbh Sans", sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    color: #505673;
+    flex-direction: column;
+}
+.timer-selector{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: var(--navy-blue);
-    width: 420px;
-    height: 60px;
-    border-radius: 40px;
-    font-weight: 600;
-    z-index: 10;
+    color: var(--ash);
+    height: 50px;
+    border-radius: 25px;
+    padding: 10px;
+    
 }
-
-.pomodoro,
-.short-break,
-.long-break {
-    width: 140px;
+.timer-selector button{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 16px;
+    height: 35px;
+    border: none;
+    color: #505673;
+    border-radius: 25px;
+    width: 130px;
     cursor: pointer;
+    background-color: transparent;
+    font-weight: 600;
 }
-
-.pomodoro {
+.activeMode{
+    background-color: var(--default-color) !important;
+    color: var(--blue-black) !important;
+}
+/* .pomodoro-time-select-remove{
+    background-color: #101326;
+}
+.long-break-time-select{
+    background-color: var(--default-color) !important;
+    color: var(--blue-black) !important;
+}
+.short-break-time-select{
+    background-color: var(--default-color) !important;
+    color: var(--blue-black) !important;
+} */
+/* .timer-selector button:hover{
     background-color: var(--orange);
     color: var(--blue-black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 120px;
-    height: 45px;
-    border-radius: 25px;
-}
-
+} */
 .circle,
 .outer-circle,
 .progress-circle,
@@ -84,6 +108,9 @@ body {
 }
 
 .shadow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 400px;
     height: 400px;
     border-radius: 50%;
@@ -109,11 +136,20 @@ body {
 .progress-circle {
     width: 330px;
     height: 330px;
-    background: conic-gradient(var(--orange) 360deg, var(--navy-blue) 0deg);
+    background: conic-gradient(var(--default-color)360deg, var(--navy-blue) 0deg); 
     border-radius: 50%;
 }
-
+.bg-orange{
+    background: conic-gradient(var(--default-color) 360deg, var(--navy-blue) 0deg) !important;
+}
+.bg-cyan{
+    background: conic-gradient(var(--cyan) 360deg, var(--navy-blue) 0deg) !important;
+}
+.bg-purple{
+    background: conic-gradient(var(--puple) 360deg, var(--navy-blue) 0deg) !important;
+}
 .inner-circle {
+
     width: 310px;
     height: 310px;
     border-radius: 50%;
@@ -129,40 +165,38 @@ body {
     justify-content: center;
     align-items: center;
     color: var(--white);
-    font-size: 90px;
+    font-size: 80px;
     margin: 5px;
-    font-family: "Roboto Slab", sans-serif;
     letter-spacing: 5px;
 }
-
-.alert-text-start,
-.alert-text-pause,
-.alert-text-restart {
-    letter-spacing: 5px;
-}
-
-.alert-text-pause,
-.alert-text-start {
+.shortbreak, .longbreak  {
     display: none;
 }
 
-.settings-icon .fa-gear {
+.alert-text-start{
+    /* display: none; */
+    margin-top: 20px;
+    cursor: pointer;
+    letter-spacing: 5px;
+}
+.alert-text-start:hover{
+    color: var(--default-color);
+}
+
+.fa-gear {
     color: #656B8C;
     font-size: 40px;
     cursor: pointer;
     display: flex;
     justify-content: center;
-}
-
-.fa-gear:hover {
-    color: var(--ash);
+    align-items: center;
 }
 
 .popup {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.6);
+    transform: translate(-50%, -50%) scale(1.55);
     background-color: var(--white);
     color: #101326;
     /* padding: 25px; */
@@ -173,6 +207,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: top 0s 0s ease-in-out, opacity 0.2s 0s ease-in-out, transform 0.2s 0s ease-in-out;
+    z-index: 100000;
 }
 
 .popup.show {
@@ -240,11 +275,24 @@ body {
 .popup-content form input[type=number] {
     width: 102px;
     height: 30px;
+    padding: 10px;
     border: none;
     background-color: #EBEDF9;
     border-radius: 7px;
 }
-
+.fa-check{
+    align-items: center;
+    justify-content: center;
+}
+#checkOrange{
+    display: flex;
+}
+#checkCyan{
+    display: none;
+}
+#checkPurple{
+    display: none;
+}
 .select-fonts,
 .select-color {
     display: flex;
@@ -272,12 +320,12 @@ body {
     display: flex;
 }
 
-.kumbh-sans,
-.roboto-slab,
-.space-mono,
-.orange-color,
-.cyan-color,
-.light-purple {
+.kumbh-sans-btn,
+.roboto-slab-btn,
+.space-mono-btn,
+.orange-btn,
+.cyan-btn,
+.purple-btn {
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -288,34 +336,34 @@ body {
     cursor: pointer;
 }
 
-.kumbh-sans {
+.kumbh-sans-btn {
     font-family: "Kumbh Sans";
     color: var(--white);
     background-color: var(--navy-blue);
 }
 
-.roboto-slab {
+.roboto-slab-btn {
     font-family: "Robot Slab";
     font-weight: 300;
 }
 
-.space-mono {
+.space-mono-btn {
     font-family: "Sapce Mono";
 }
 
-.roboto-slab:hover {
+/* .roboto-slab-btn:hover {
     border: 2px solid #EBEDF9;
-}
+} */
 
-.orange-color {
+.orange-btn {
     background-color: var(--orange);
 }
 
-.cyan-color {
+.cyan-btn {
     background-color: var(--cyan);
 }
 
-.light-purple {
+.purple-btn {
     background-color: var(--puple);
 }
 
@@ -337,10 +385,12 @@ body {
     body {
         width: 100%;
         max-width: 449px;
+
     }
 
     .header {
         font-size: 35px;
+        padding-top: 40px;
     }
 
     .timer-selector {
@@ -348,17 +398,16 @@ body {
         margin-right: auto;
         font-size: 16px;
         color: #505673;
-        width: 300px;
+        width: 350px;
         height: 60px;
         border-radius: 40px;
         font-weight: 600;
         z-index: 10;
     }
 
-    .pomodoro,
-    .short-break,
-    .long-break {
+    .select-time-type {
         width: 95px;
+        height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -399,7 +448,6 @@ body {
     .timer {
         font-size: 65px;
         margin: 5px;
-        font-family: "Roboto Slab", sans-serif;
     }
 
     .popup {
