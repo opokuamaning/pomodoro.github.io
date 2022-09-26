@@ -9,610 +9,385 @@ viewBtn.addEventListener("click", () => {
 });
 close.addEventListener("click", () => {
     viewBtn.click();
+    setFont(defaultFontVal);
 });
 
+function play() {
+    var audio = new Audio('../assets/audio/bell.wav');
+    audio.play();
+  }
 
 let pomodoroInput = document.querySelector("#pomodoro-input");
 let shortBreakInput = document.querySelector("#short-break-input");
-let longBreakInput = document.querySelector("#long-break-input");
+let longBreakinput = document.querySelector("#long-break-input");
+//let audi
+//console.log(pomodoroInput.value, shortBreakInput.value, longBreakinput.value)
 
-let startText = document.querySelector(".alert-text-start");
-// let restartText = document.querySelector(".alert-text-restart");
-// let pauseText = document.querySelector(".alert-text-pause");
+let subContainer = document.querySelector(".sub-container")
+let selectFontBtns = document.querySelector(".select-font-btn");
+//let  = document.querySelector(".active-font").style;
+const defaultFontElement = document.querySelector(".active-font");
+const defaultFontCssObj = window.getComputedStyle(defaultFontElement, null);
 
-// let ticked = document.querySelector(".fa-gear");
+let defaultFontVal = defaultFontCssObj.getPropertyValue("font-family");
+console.log(defaultFontVal, 0)
+let newFont = defaultFontVal;
 
-// let timerObject = {
-//     "pomodoro-mode": parseInt(pomodoroInput.value) || 25,
-//     "shortBreak-mode": parseInt(shortBreakInput.value) || 5,
-//     "longBreak-mode": parseInt(longBreakInput.value) || 15,
-//     longBreakInterval: 4,
-//     session: 0,
-// };
-
-// const getRemainingTime = (endTime) => {
-//     const currentTime = Date.parse(new Date());
-//     const difference = endTime - currentTime;
-
-//     const total = Number.parseInt(difference / 1000, 10);
-//     const minutes = Number.parseInt((total / 60) % 60, 10);
-//     const seconds = Number.parseInt(total % 60, 10);
-
-//     return {
-//         total,
-//         minutes,
-//         seconds,
-//     };
-// }
-
-// const updateClock = () => {
-//     const {
-//         remainingTime
-//     } = timerObject;
-//     //console.log(`Update Clock fn: ${remainingTime}`)
-//     let minutes = `${remainingTime.minutes}`;
-//     minutes = minutes < 10 ? "0" + minutes : minutes;
-//     let seconds = `${remainingTime.seconds}`;
-//     seconds = seconds < 10 ? "0" + seconds : seconds;
-//     //console.log(remainingTime.total);
-
-//     let minutesValue = document.querySelector('.minutes');
-//     let secondsValue = document.querySelector('.seconds');
-
-//     minutesValue.innerHTML = minutes;
-//     secondsValue.innerHTML = seconds;
-// }
-// let checkOrange = document.querySelector("#checkOrange");
-// let checkCyan = document.querySelector("#checkCyan");
-// let checkPurple = document.querySelector("#checkPurple");
-// let colorCahange = document.querySelector(".changeToColor")
-// const changeColor = (color) => {
-//     if (color === "orange") {
-//         //globalColor = "bg-orange";
-//         colorCahange.classList.add("bg-orange");
-//         colorCahange.classList.remove("bg-purple");
-//         colorCahange.classList.remove("bg-cyan");
-
-//         // pomodoroSelect.classList.add("bg-orange");
-//         // pomodoroSelect.classList.remove("pomodoro-time-select");
-
-//         checkOrange.style.display = "flex";
-//         checkCyan.style.display = "none";
-//         checkPurple.style.display = "none";
-//     } else if (color === "cyan") {
-//         // globalColor = "bg-cyan";
-//         colorCahange.classList.remove("bg-orange");
-//         colorCahange.classList.remove("bg-purple");
-//         colorCahange.classList.add("bg-cyan");
-
-//         // pomodoroSelect.classList.add("bg-cyan");
-//         // pomodoroSelect.classList.remove("pomodoro-time-select");
-
-//         // shortBreakSelect.classList.add("bg-cyan");
-//         // shortBreakSelect.classList.remove("pomodoro-time-select");
-
-//         // longBreakSelect.classList.add("bg-cyan");
-//         // longBreakSelect.classList.remove("pomodoro-time-select");
-
-//         checkOrange.style.display = "none";
-//         checkCyan.style.display = "flex";
-//         checkPurple.style.display = "none";
-//     } else if (color === "purple") {
-//         // globalColor = "bg-purple";
-//         colorCahange.classList.add("bg-purple");
-//         colorCahange.classList.remove("bg-cyan");
-//         colorCahange.classList.remove("bg-orange")
-
-//         // pomodoroSelect.classList.add("bg-purple");
-//         // pomodoroSelect.classList.remove("pomodoro-time-select");
-
-//         // shortBreakSelect.classList.add("bg-purple");
-//         // shortBreakSelect.classList.remove("pomodoro-time-select");
-
-//         // longBreakSelect.classList.add("bg-purple");
-//         // longBreakSelect.classList.remove("pomodoro-time-select");
-
-//         checkPurple.style.display = "flex";
-//         checkOrange.style.display = "none";
-//         checkCyan.style.display = "none";
-//     }
-//     //console.log(color);
-// }
-let checkKumbh = document.querySelector("#checkKumbh");
-let checkRoboto = document.querySelector("#checkRoboto");
-let checkSpace = document.querySelector("#checkSpace");
-let subContainer = document.querySelector(".sub-container");
-
-const changeFont = (font) => {
-    if (font === "kumbh") {
-        subContainer.style.setProperty("font-family", "Kumbh Sans", "important");
-        checkKumbh.style.backgroundColor = "var(--navy-blue)";
-        checkRoboto.style.backgroundColor = "#EBEDF9";
-        checkSpace.style.backgroundColor = "#EBEDF9";
-
-        checkKumbh.style.color = "#EBEDF9";
-        checkRoboto.style.color = "var(--navy-blue)";
-        checkSpace.style.color = "var(--navy-blue)";
-
-    } else if (font === "roboto") {
-        subContainer.style.setProperty("font-family", "Roboto Slab", "important");
-        // subContainer.style.fontFamily = "Roboto Slab";
-        checkKumbh.style.backgroundColor = "#EBEDF9";
-        checkRoboto.style.backgroundColor = "var(--navy-blue)";
-        checkSpace.style.backgroundColor = "#EBEDF9";
-
-        checkKumbh.style.color = "var(--navy-blue)";
-        checkRoboto.style.color = "#EBEDF9";
-        checkSpace.style.color = "var(--navy-blue)";
-    } else if (font === "space") {
-        subContainer.style.setProperty("font-family", "Space Mono", "important");
-        // subContainer.style.fontFamily = "Space Mono";
-        checkKumbh.style.backgroundColor = "#EBEDF9";
-        checkRoboto.style.backgroundColor = "#EBEDF9";
-        checkSpace.style.backgroundColor = "var(--navy-blue)";
-
-        checkKumbh.style.color = "var(--navy-blue)";
-        checkRoboto.style.color = "var(--navy-blue)";
-        checkSpace.style.color = "#EBEDF9";
-    }
-}
-
-// let interval;
-// let isPaused = false;
-
-let progressCircle = document.querySelector("#progressCircle");
-
-/*function startTimer() {
-    let {
-        total
-    } = timerObject.remainingTime;
-    speed = 1000;
-    const endTime = Date.parse(new Date()) + total * speed;
-
-    let progressValue = 360;
-    let progressEndValue = timerObject.remainingTime.total * speed;
-    let tick = progressValue/total;
-    // console.log(progressValue, progressEndValue)
-
-    if (timerObject.mode === "pomodoro-mode") timerObject.session++;
-
-    interval = setInterval(() => {
-        timerObject.remainingTime = getRemainingTime(endTime);
-        
-        progressValue -= tick;        
-        //console.log(tick)
-        progressCircle.style.background = `conic-gradient(
-            var(--default-color) ${progressValue}deg,
-            var(--navy-blue)  0deg
-            )`;
-            //console.log(`progress value: ${progressValue}, tick: ${tick}`)
-        if (progressEndValue === progressValue) {
-            clearInterval(interval)
-        }
-        updateClock();
-        total = timerObject.remainingTime.total;
-        if (total <= 0) {
-            clearInterval(interval);
-            switch (timerObject.mode) {
-                case ("pomodoro-mode"):
-                    if (timerObject.session % timerObject.longBreakInterval === 0) {
-                        switchModeSelection("longBreak-mode");
-                    } else {
-                        switchModeSelection("shortBreak-mode");
-                    }
-                    break;
-                default:
-                    switchModeSelection("pomodoro-mode");
-            }
-            startTimer();
-
-        }
-    }, speed)
-
-}
-
-function stopTimer() {
-    
-    clearInterval(interval);
-}
-
-const togglePause = () => {
-    isPaused = !isPaused;
-    if (isPaused) {
-        startText.innerHTML = "PAUSE";
-    } else {
-        startText.innerHTML = "RESUME";
-    }
-}
-startText.addEventListener('click', (e) => {
-    if (interval === undefined) {
-        e.target.textContent = "PAUSE"
-        startTimer();
-    }else if(interval == 0){
-        e.target.textContent = "RESUME"
-        startTimer()
-    }
-     else {
-        e.target.textContent = "START"
-        stopTimer();
+selectFontBtns.addEventListener("click", function (e) {
+    let activeFont = document.querySelector(".active-font");
+    let fontClicked = e.target
+    if (fontClicked.children.length < 1) {
+        //console.log(activeFont, 0)
+        activeFontAttributeValues = activeFont.getAttribute("class");
+        //console.log(activeFontAttributeValues);
+        activeFont.removeAttribute("class");
+        activeFont.setAttribute("class", activeFontAttributeValues.replace("active-font", ""));
+        let initialFontAttribute = fontClicked.getAttribute("class");
+        fontClicked.setAttribute("class", `${initialFontAttribute} active-font`)
+        //console.log(initialFontAttribute, 234342)
+        let bgFontSet = initialFontAttribute.split(" ")[0]
+        bgFontSet = bgFontSet.split("-");
+        bgFontSet = `${bgFontSet[0]} ${bgFontSet[1]}`
+        console.log(bgFontSet);
+        setFont(bgFontSet);
+        newFont = bgFontSet;
     }
 })
-*/
-// const switchModeSelection = (mode) => {
-//     //console.log(mode)
-//     timerObject = {
-//         ...timerObject,
-//         mode,
-//         remainingTime: {
-//             total: timerObject[mode] * 60,
-//             minutes: timerObject[mode],
-//             seconds: 0,
-//         }
-//     }
-    
-//     if (mode === "pomodoro-mode") {
-//         pomodoroSelect.classList.add("pomodoro-time-select");
-//         shortBreakSelect.classList.remove("short-break-time-select");
-//         longBreakSelect.classList.remove("long-break-time-select");
-//     } else if (mode === "shortBreak-mode") {
-//         shortBreakSelect.classList.add("short-break-time-select");
-//         longBreakSelect.classList.remove("long-break-time-select");
-//         pomodoroSelect.classList.remove("pomodoro-time-select");
-//     } else if (mode === "longBreak-mode") {
-//         longBreakSelect.classList.add("long-break-time-select");
-//         pomodoroSelect.classList.remove("pomodoro-time-select");
-//         shortBreakSelect.classList.remove("short-break-time-select");
-//     }
-//     updateClock();
-//     stopTimer();
-// }
-// detect click on any of the different modes
-// const handleModeSelection = (clickEvent) => {
-//     const mode = clickEvent.target.dataset;
-//     if (!mode) return;
-//     switchModeSelection(mode);
-// }
 
 
-
-// let modeSelector = document.querySelector("#select-mode");
-
-let selectColor = document.querySelector(".select-color-btn");
-
-// function switchMode(e, active){
-//     let mode = e.target;
-//     if(mode.getAttribute('class')==="select-time-type"){
-//         // active.removeAttribute('class');
-// 		// active.setAttribute('class','active');
-// 		// mode.setAttribute('class', 'pomodoro-time-select');
-//         console.log(mode)
-//     }
-    
-// }
-// modeSelector.addEventListener('click', switchMode);
-
-function colorToBeSelected(e){
-    // console.log(e.target)
-    // let colorToBeChanged = e.target.style;
-    // console.log(colorToBeChanged);
-    let backgroundElementToBeChanged = e.target
-    //console.log(backgroundElementToBeChanged.childElementCount)
-    if(backgroundElementToBeChanged.childElementCount < 1){
-        backgroundElementToBeChanged = backgroundElementToBeChanged.parentNode;
-    }
-    let faCheck = document.querySelector(".fa-check");
-    faCheck.removeAttribute('class');
-    // console.log(faCheck)
-    backgroundElementToBeChanged.children[0].setAttribute('class', 'fa-solid fa-check');
-
-    //console.log(backgroundElementToBeChanged);
-    let bgColorSet = window.getComputedStyle(backgroundElementToBeChanged, null).getPropertyValue('background-color');
-    setColorAndFont(backgroundElementToBeChanged, bgColorSet)
-}
-function setColorAndFont(backgroundElementToBeChanged, bgColorSet){
+function setFont(bgFontSet) {
     let defaultBgAndFont = document.querySelector(':root');
-    defaultBgAndFont.style.setProperty('--default-color', bgColorSet);
+    console.log(defaultBgAndFont, "op")
+    defaultBgAndFont.style.setProperty('--default-font', bgFontSet);
 
     //defaultBgAndFont.style.setColorAndFont()
 }
-selectColor.addEventListener('click', function (e){
-    colorToBeSelected(e)
+
+// Select color function and eventlistener
+let selectColor = document.querySelector(".select-color-btn");
+
+function colorTobeSelected(e) {
+    let backgroundElementToBeChanged = e.target;
+    // console.log(backgroundElementToBeChanged.childElementCount);
+    if (backgroundElementToBeChanged.childElementCount < 1) {
+        backgroundElementToBeChanged = backgroundElementToBeChanged.parentNode;
+    }
+
+    let faCheck = document.querySelector(".fa-check");
+    faCheck.removeAttribute("class");
+
+    backgroundElementToBeChanged.children[0].setAttribute("class", "fa-solid fa-check");
+    //faCheck.style.display = "flex";
+    backgroundElementToBeChanged.children[0].style.display = "flex"
+    console.log(backgroundElementToBeChanged, 'fa-check');
+
+    let bgColorSet = window.getComputedStyle(backgroundElementToBeChanged, null).getPropertyValue("background-color");
+    setColor(backgroundElementToBeChanged, bgColorSet)
+}
+
+function setColor(backgroundElementToBeChanged, bgColorSet) {
+    let defaultColor = document.querySelector(":root");
+    defaultColor.style.setProperty("--default-color", bgColorSet);
+    console.log(defaultColor)
+}
+selectColor.addEventListener("click", function (e) {
+    colorTobeSelected(e)
 })
 
-let intervals = 1;
-let minuteInit = document.querySelector('.minutes').textContent
-let minuteText = document.querySelector('.minutes')
-let secondText = document.querySelector('.seconds')
-let totalSeconds = minuteText.textContent*60
-let progresTotalValue = 360;
+let interval = 1;
+let initialMinutes = document.querySelector(".minutes").textContent;
+let minutesText = document.querySelector(".minutes");
+let secondsText = document.querySelector(".seconds");
+let totalSeconds = minutesText.textContent * 60;
+let progressTotalValue = 360;
 let timer = null;
-let ti = null;
-function startTime(){
-    timer =  setInterval(function (){
+let initialTime = null;
 
-        let progresReducer = intervals/totalSeconds*360;
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue-progresReducer}deg,
-        var(--navy-blue)  0deg
-        )`;
+function startTimer() {
+    timer = setInterval(function () {
+        let progressReducer = interval / totalSeconds * 360;
+
+        progressCircle.style.background = `conic-gradient(var(--default-color)
+         ${progressTotalValue-progressReducer}deg, var(--navy-blue) 0deg)`;
+
         // get previous seconds when paused
-        let seccondsTextN = 60-intervals%60
-        
-        if(seccondsTextN<60){
-            secondText.textContent=seccondsTextN.toLocaleString("en-US", {minimumIntegerDigits:2, useGrouping:false});
-        }else if(seccondsTextN==60){
-            secondText.textContent=0
+        let secondsTextN = 60 - interval;
 
-        }
-       
-         if(intervals==1||seccondsTextN==59  ){
-            let minutesParse = parseInt(minuteText.textContent)-1
-           minuteText.textContent= minutesParse.toLocaleString("en-US", {minimumIntegerDigits:2, useGrouping:false});
-        }
-        
-        intervals++
-        // console.log(progresReducer)
-        // console.log(progresTotalValue,'hgu')
-
-        if(progresReducer>=progresTotalValue){
-            clearInterval(timer)
-            progressCircle.style.background = `conic-gradient(
-            var(--default-color) ${progresTotalValue}deg,
-            var(--navy-blue)  0deg
-            )`;
-            minuteText.textContent='00'
-            secondText.textContent='00'
-            intervals=1;
-            timerStartButton.textContent="RESTART"
+        if (secondsTextN < 60) {
+            secondsText.textContent = secondsTextN.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false
+            });
+        } else if (secondsTextN === 60) {
+            secondsText.textContent = 0;
         }
 
-    },1000)
+        if (interval == 1 || secondsTextN == 59) {
+            let minutesParse = parseInt(minutesText.textContent) - 1;
+            minutesText.textContent = minutesParse.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false
+            });
+        }
+        interval++;
+        console.log(progressReducer);
+        console.log(progressTotalValue, "PTV");
+
+        if (progressReducer >= progressTotalValue) {
+            clearInterval(timer);
+            progressCircle.style.background = `conic-gradient(var(--default-color)
+            ${progressTotalValue}deg, var(--navy-blue) 0deg)`;
+            //console.log(progressCircle, "hi")
+            minutesText.textContent = "00";
+            secondsText.textContent = "00";
+            
+            interval = 0;
+            //Set timer start button to RESTART
+            timerStartButton.textContent = "RESTART"
+            play();
+        }
+    }, 1000)
 }
-function resumeTimer(){
-    ti =  setInterval(function (){
 
-        let progresReducer = intervals/totalSeconds*360;
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue-progresReducer}deg,
-        var(--navy-blue)  0deg
-        )`;
+function resumeTimer() {
+    initialTime = setInterval(() => {
+        let progressReducer = interval / totalSeconds * 360;
 
-         let seccondsTextN = 60-intervals%60
+        progressCircle.style.background = `conic-gradient(var(--default-color)
+         ${progressTotalValue-progressReducer}deg, var(--navy-blue) 0deg)`;
 
-        
-        if(seccondsTextN<60){
-            secondText.textContent=seccondsTextN.toLocaleString("en-US", {minimumIntegerDigits:2, useGrouping:false})
+        // get previous seconds when paused
+        let secondsTextN = 60 - interval;
 
-        }else if(seccondsTextN==60){
-            secondText.textContent=0
-        }
-        
-        if(intervals==1||seccondsTextN==59  ){
-            let minutesParse = parseInt(minuteText.textContent)-1
-            minuteText.textContent= minutesParse.toLocaleString("en-US", {minimumIntegerDigits:2, useGrouping:false});
-        }
-        intervals++
-        console.log(progresReducer)
-        console.log(progresTotalValue,'hgu')
-
-        if(progresReducer>=progresTotalValue){
-            //u=timer;
-            clearInterval(ti)
-            progressCircle.style.background = `conic-gradient(
-            var(--default-color) ${progresTotalValue}deg,
-            var(--navy-blue)  0deg
-            )`;
-            minuteText.textContent='00'
-            secondText.textContent='00'
-            intervals=1;
-            timerStartButton.textContent="RESTART"
+        if (secondsTextN < 60) {
+            secondsText.textContent = secondsTextN.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false
+            });
+        } else if (secondsTextN == 60) {
+            secondsText.textContent = 0;
         }
 
-    },1000)
+        if (interval == 1) {
+            let minutesParse = parseInt(minutesText.textContent) - 1;
+            minutesText.textContent = minutesParse.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false
+            });
+        }
+
+        interval++;
+
+        if(progressReducer >= progressTotalValue){
+            clearInterval(initialTime);
+
+            progressCircle.style.background = `conic-gradient(var(--default-color)
+         ${progressTotalValue}deg, var(--navy-blue) 0deg)`;
+
+         minutesText.textContent = "00";
+         secondsText.textContent = "00";
+         interval = 1;
+         timerStartButton.textContent = "RESTART";
+        }
+    }, 1000)
 }
-function restartTimer(){
-    minuteText.textContent=minuteInit.toLocaleString("en-US", {minimumIntegerDigits:2, useGrouping:false});
-    console.log(minuteText.textContent,'10')
-    timer =   setInterval(function (){
 
-        let progresReducer = intervals/totalSeconds*360;
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue-progresReducer}deg,
-        var(--navy-blue)  0deg
-        )`;
+function restartTimer() {
+    minutesText.textContent = initialMinutes.toLocaleString("en-US", {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+    });
 
-         let seccondsTextN = 60-intervals%60
+    timer = setInterval(() => {
+        let progressReducer = interval / totalSeconds * 360;
 
-        
-        if(seccondsTextN<60){
-            secondText.textContent=seccondsTextN.toLocaleString("en-US", {minimumIntegerDigits:2, useGrouping:false});
+        progressCircle.style.background = `conic-gradient(var(--default-color)
+         ${progressTotalValue-progressReducer}deg, var(--navy-blue) 0deg)`;
 
-        }else if(seccondsTextN==60){
-            secondText.textContent=0;
-        }
-        
-        if(intervals==1||seccondsTextN==59  ){
-            let minutesParse = parseInt(minuteText.textContent)-1
-            minuteText.textContent= minutesParse.toLocaleString("en-US", {minimumIntegerDigits:2, useGrouping:false});
-        }
-        intervals++
-        console.log(progresReducer)
-        console.log(progresTotalValue,'hgu')
-
-        if(progresReducer>=progresTotalValue){
-            //u=timer;
-            clearInterval(timer)
-            progressCircle.style.background = `conic-gradient(
-            var(--default-color) ${progresTotalValue}deg,
-            var(--navy-blue)  0deg
-            )`;
-            minuteText.textContent='00'
-            secondText.textContent='00'
-            intervals=0;
-            timerStartButton.textContent="RESTART"
+        // get previous seconds when paused
+        let secondsTextN = 60 - interval;
+        if (secondsTextN < 60) {
+            secondsText.textContent = secondsText.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false
+            });
+        } else if (secondsTextN == 60) {
+            secondsText.textContent = 0;
         }
 
-    },1000)
+        if (interval == 1 || secondsTextN == 59) {
+            let minutesParse = parseInt(minutesText.textContent) - 1;
+            minutesText.textContent = minutesParse.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false
+            });
+        }
+        interval++;
+        console.log(progressReducer);
+
+        if (progressReducer >= progressTotalValue) {
+            clearInterval(timer);
+
+            progressCircle.style.background = `conic-gradient(var(--default-color)
+            ${progressTotalValue-progressReducer}deg, var(--navy-blue) 0deg)`;
+
+            minutesText.textContent = "00";
+            secondsText.textContent = "00";
+            interval = 0;
+            timerStartButton.textContent = "RESTART";
+
+        }
+    }, 1000);
 }
-function stopTimer(){
-     clearInterval(timer)
-      clearInterval(ti)  
-}
-//function pause//
-let timerStartButton = document.querySelector('#start-text');
-timerStartButton.addEventListener('click',
 
-    function (){
-      if(timerStartButton.textContent=="START"){
-        startTime();
-        timerStartButton.textContent="PAUSE"
-      }
-      else if(timerStartButton.textContent=="PAUSE"){
-        timerStartButton.textContent="RESUME"
-        console.log('tl')
-        stopTimer()
-       // u;
-      }
-      else if(timerStartButton.textContent=="RESUME"){
-        timerStartButton.textContent="PAUSE"
-        console.log('tl')
-        resumeTimer()
-      }
-      else if(timerStartButton.textContent=="RESTART"){
-        timerStartButton.textContent="PAUSE"
-        console.log('tl')
-        restartTimer()
-      }
+function stopTimer() {
+    clearInterval(timer);
+    clearInterval(initialTime);
+}
+
+// Pause function
+let timerStartButton = document.querySelector("#start-text");
+timerStartButton.addEventListener("click", function () {
+    if (timerStartButton.textContent == "START") {
+        startTimer();
+        timerStartButton.textContent = "PAUSE";
+    } else if (timerStartButton.textContent == "PAUSE") {
+        timerStartButton.textContent = "RESUME";
+        console.log("tl");
+        stopTimer();
+    } else if (timerStartButton.textContent == "RESUME") {
+        timerStartButton.textContent = "PAUSE";
+        // add Resume time function on the next line
+        resumeTimer();
+
+    } else if (timerStartButton.textContent == "RESTART") {
+        timerStartButton.textContent = "PAUSE";
+        // add restart time function on the next line
+        restartTimer();
     }
-    )
+})
 
-const nav = document.querySelector('#select-mode')
+const navigateMode = document.querySelector("#select-mode");
 
-nav.addEventListener('click',
-    function (e){
-        navItemClicked = e.target.textContent.replace(/\s/g,'');
-        modeSelected = e.target;
-        activeMode = document.querySelector(".activeMode");
-        activeMode.removeAttribute("class");
-        activeMode.setAttribute("class", "select-time-type");
-        modeSelected.setAttribute("class", "select-time-type activeMode");
-       // navItemClicked.
-       console.log(navItemClicked)
-       stopTimer();
+navigateMode.addEventListener("click", function (e) {
+    navItemClicked = e.target.textContent.replace(/\s/g, "");
+    modeSelected = e.target;
+    activeMode = document.querySelector(".activeMode");
+    activeMode.removeAttribute("class");
+    activeMode.setAttribute("class", "select-time-type");
+    modeSelected.setAttribute("class", "select-time-type activeMode");
+
+    //console.log(navItemClicked);
+    stopTimer();
+
     let pd = parseInt(form.elements['pomodoro'].value);
     let sb = parseInt(form.elements['shortBreak'].value);
     let lb = parseInt(form.elements['longBreak'].value);
 
-    let timer = document.querySelector('.timer');
-    // let pomodoro = document.querySelector('.pomodoro');
-    // let shorttimer = document.querySelector('.shorttimer') 
-    // let  longtimer =document.querySelector('.longtimer')
+    let timer = document.querySelector(".timer");
+    if (navItemClicked == "pomodoro") {
+        timer.setAttribute("id", "pomodoro")
+        console.log(timer);
 
-     if(navItemClicked=='pomodoro'){
-        timer.setAttribute('id','pomodoro')
-                console.log(timer)
+        timer.firstElementChild.textContent = pd;
+        timer.lastElementChild.textContent = "00";
 
-        timer.firstElementChild.textContent =pd
-        timer.lastElementChild.textContent='00'
-         intervals = 1;
-        minuteInit=document.querySelector('.minutes').textContent
-        minuteText = document.querySelector('.minutes')
-        totalSeconds = minuteText.textContent*60
-        timerStartButton.textContent="START"
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue}deg,
-        var(--navy-blue)  0deg
-        )`;
-    }else if(navItemClicked=='shortbreak'){
-        timer.setAttribute('id','shortbreak')
-        console.log(timer)
-        timer.firstElementChild.textContent = sb
-        timer.lastElementChild.textContent='00'
-         intervals = 1;
-        minuteInit=document.querySelector('.minutes').textContent
-        minuteText = document.querySelector('.minutes')
-        totalSeconds = minuteText.textContent*60
-        timerStartButton.textContent="START"
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue}deg,
-        var(--navy-blue)  0deg
-        )`;
-    }
-    else if(navItemClicked=='longbreak'){
-        timer.setAttribute('id','longbreak')
+        interval = 1;
 
-        timer.firstElementChild.textContent =lb
-        timer.lastElementChild.textContent='00'
-         intervals = 1;
-        minuteInit=document.querySelector('.minutes').textContent
-        minuteText = document.querySelector('.minutes')
-        totalSeconds = minuteText.textContent*60
-        timerStartButton.textContent="START"
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue}deg,
-        var(--navy-blue)  0deg
-        )`;
-    }
+        initialMinutes = document.querySelector(".minutes").textContent;
+        minutesText = document.querySelector(".minutes");
+        totalSeconds = minutesText.textContent * 60;
+        timerStartButton.textContent = "START";
+
+        progressCircle.style.background = `conic-gradient(var(--default-color) ${progressTotalValue}deg, var(--navy-blue) 0deg)`;
+    } else if (navItemClicked == "shortbreak") {
+        timer.setAttribute("id", "shortbreak");
+
+        timer.firstElementChild.textContent = sb;
+        timer.lastElementChild.textContent = "00";
+
+        interval = 1;
+
+        initialMinutes = document.querySelector(".minutes").textContent;
+        minutesText = document.querySelector(".minutes");
+        totalSeconds = minutesText.textContent * 60;
+        timerStartButton.textContent = "START";
+
+        progressCircle.style.background = `conic-gradient(var(--default-color) ${progressTotalValue}deg, var(--navy-blue) 0deg)`;
+    } else if (navItemClicked == "longbreak") {
+        timer.setAttribute("id", "longbreak");
+
+        timer.firstElementChild.textContent = lb;
+        timer.lastElementChild.textContent = "00";
+
+        interval = 1;
+
+        initialMinutes = document.querySelector(".minutes").textContent;
+        minutesText = document.querySelector(".minutes");
+        totalSeconds = minutesText.textContent * 60;
+        timerStartButton.textContent = "START";
+
+        progressCircle.style.background = `conic-gradient(var(--default-color) ${progressTotalValue}deg, var(--navy-blue) 0deg)`;
 
     }
-
-    )
+})
 
 const form = document.querySelector("#form");
+form.addEventListener("submit", (e)=>{
+    e.preventDefault();
 
-form.addEventListener("submit", (e) => {
-
-    //console.log(btnApply);
-    e.preventDefault()
     let pd = parseInt(form.elements['pomodoro'].value);
     let sb = parseInt(form.elements['shortBreak'].value);
     let lb = parseInt(form.elements['longBreak'].value);
-    let timer = document.querySelector('.timer');
-    //timer.getAttribute("class").match('pomodoro');
-    
 
-    if(timer.getAttribute("class").match('pomodoro')){
-        console.log(timer)
+    let timer = document.querySelector(".timer");
+
+    if(timer.getAttribute("class").match("pomodoro")){
         timer.firstElementChild.textContent = pd;
-        timer.lastElementChild.textContent = '00';
-         intervals = 1;
-        minuteInit = document.querySelector('.minutes').textContent
-        console.log(minuteInit)
-        minuteText = document.querySelector('.minutes')
-        totalSeconds = minuteText.textContent*60
-        timerStartButton.textContent="START"
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue}deg,
-        var(--navy-blue)  0deg
-        )`;
-    }else  if(timer.getAttribute("class").match('shortbreak')){
-        console.log(timer)
+        timer.lastElementChild.textContent = "00";
+
+        interval = 1;
+
+        initialMinutes = document.querySelector(".minutes").textContent;
+        minutesText = document.querySelector(".minutes");
+        totalSeconds = minutesText.textContent * 60;
+        timerStartButton.textContent = "START";
+
+        progressCircle.style.background = `conic-gradient(var(--default-color) ${progressTotalValue}deg, var(--navy-blue) 0deg)`;
+    }else if(timer.getAttribute("class").match("shortbreak")){
         timer.firstElementChild.textContent = sb;
-        timer.lastElementChild.textContent = '00';
-         intervals = 1;
-        minuteInit=document.querySelector('.minutes').textContent
-        minuteText = document.querySelector('.minutes');function solution(plaintext, keyword, row, column) {
-}
-        totalSeconds = minuteText.textContent*60
-        timerStartButton.textContent="START"
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue}deg,
-        var(--navy-blue)  0deg
-        )`;
-    }else  if(timer.getAttribute("class").match('longbreak')){
-        console.log(timer)
+        timer.lastElementChild.textContent = "00";
+
+        interval = 1;
+
+        initialMinutes = document.querySelector(".minutes").textContent;
+        minutesText = document.querySelector("minutes");
+        totalSeconds = minutesText.textContent * 60;
+        timerStartButton.textContent = "START";
+
+        progressCircle.style.background = `conic-gradient(var(--default-color) ${progressTotalValue}deg, var(--navy-blue) 0deg)`;
+    }else if(timer.getAttribute("class").match("longbreak")){
         timer.firstElementChild.textContent = lb;
-        timer.lastElementChild.textContent = '00';
-         intervals = 1;
-        minuteInit=document.querySelector('.minutes').textContent
-        minuteText = document.querySelector('.minutes')
-        totalSeconds = minuteText.textContent*60
-        timerStartButton.textContent="START"
-        progressCircle.style.background = `conic-gradient(
-        var(--default-color) ${progresTotalValue}deg,
-        var(--navy-blue)  0deg
-        )`;
+        timer.lastElementChild.textContent = "00";
+
+        interval = 1;
+
+        initialMinutes = document.querySelector(".minutes").textContent;
+        minutesText = document.querySelector("minutes");
+        totalSeconds = minutesText.textContent * 60;
+        timerStartButton.textContent = "START";
+
+        progressCircle.style.background = `conic-gradient(var(--default-color) ${progressTotalValue}deg, var(--navy-blue) 0deg)`;
     }
-    viewBtn.click()
-    //console.log(pd,'pd')
+
+    defaultFontVal = newFont;
+    setFont(defaultFontVal);
+    viewBtn.click();
 })
+
+// let btnApply = document.querySelector(".apply");
+// let btnEventClicked = false;
+// btnApply.addEventListener("click", function (event) {
+//     event.preventDefault()
+    
+// })

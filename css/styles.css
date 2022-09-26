@@ -30,7 +30,7 @@ body {
     padding: 20px;
     background-color: var(--blue-black);
     color: var(--white);
-    font-family: "Kumbh Sans", sans-serif;
+    font-family: var(--default-font);
 }
 
 .header {
@@ -45,7 +45,7 @@ body {
 }
 
 .sub-container{
-    font-family: "Kumbh Sans", sans-serif;
+    font-family: var(--default-font);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -336,19 +336,19 @@ body {
     cursor: pointer;
 }
 
-.kumbh-sans-btn {
-    font-family: "Kumbh Sans";
+.active-font{
+    font-family: var(--default-font);
     color: var(--white);
     background-color: var(--navy-blue);
 }
 
 .roboto-slab-btn {
-    font-family: "Robot Slab";
+    font-family: var(--robot-slab);
     font-weight: 300;
 }
 
 .space-mono-btn {
-    font-family: "Sapce Mono";
+    font-family: var(--space-mono);
 }
 
 /* .roboto-slab-btn:hover {

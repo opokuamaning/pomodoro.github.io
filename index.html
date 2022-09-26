@@ -30,16 +30,6 @@
                   <div class="seperator">:</div>
                   <div class="seconds">00</div>
                 </div>
-                <!-- <div class="timer shortbreak">
-                  <div class="minutes">1</div>
-                  <div class="seperator">:</div>
-                  <div class="seconds">00</div>
-                </div>
-                <div class="timer longbreak">
-                  <div class="minutes">1</div>
-                  <div class="seperator">:</div>
-                  <div class="seconds">00</div>
-                </div> -->
                 <div class="alert-text">
                   <div class="alert-text-start start" data-action="startTime" id="start-text">START</div>
                   <!-- <div class="alert-text-restart restart" id="restartText">RESTART</div>
@@ -77,14 +67,14 @@
               <label for="long-break-input">long break</label>
               <input type="number" name="longBreak" id="long-break-input" value="15" required>
             </div>
-            <button class="apply" type="submit" data-action="start">Apply</button>
+            <button class="apply" type="submit" >Apply</button>
           </form>
           <div class="select-fonts">
             <div class="font-label">Font</div>
             <div class="select-font-btn">
-              <button class="kumbh-sans-btn" onclick="changeFont('kumbh')" id="checkKumbh">Aa</button>
-              <button class="roboto-slab-btn" onclick="changeFont('roboto')" id="checkRoboto">Aa</button>
-              <button class="space-mono-btn" onclick="changeFont('space')" id="checkSpace">Aa</button>
+              <button class="kumbh-sans-btn font-btn active-font" id="checkKumbh">Aa</button>
+              <button class="roboto-slab-btn font-btn" id="checkRoboto">Aa</button>
+              <button class="space-mono-btn font-btn" id="checkSpace">Aa</button>
             </div>
           </div>
           <div class="select-color">
