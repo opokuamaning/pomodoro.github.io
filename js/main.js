@@ -13,8 +13,12 @@ close.addEventListener("click", () => {
 });
 
 function play() {
-    var audio = new Audio('../assets/audio/bell.wav');
-    audio.play();
+    var audio = new Audio('../assets/audio/bell.mp3');
+    console.log(audio)
+    // audio.then((audioVar)=>{
+    //     audioVar.play();
+    // }).catch(console.log(error));
+    audio.play()
   }
 
 let pomodoroInput = document.querySelector("#pomodoro-input");
@@ -109,7 +113,7 @@ function startTimer() {
 
         progressCircle.style.background = `conic-gradient(var(--default-color)
          ${progressTotalValue-progressReducer}deg, var(--navy-blue) 0deg)`;
-
+        
         // get previous seconds when paused
         let secondsTextN = 60 - interval % 60;
 
@@ -188,6 +192,7 @@ function resumeTimer() {
          secondsText.textContent = "00";
          interval = 1;
          timerStartButton.textContent = "RESTART";
+         play();
         }
     }, 1000)
 }
@@ -236,7 +241,7 @@ function restartTimer() {
             secondsText.textContent = "00";
             interval = 0;
             timerStartButton.textContent = "RESTART";
-
+            play();
         }
     }, 1000);
 }
