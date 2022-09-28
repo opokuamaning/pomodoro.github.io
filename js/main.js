@@ -111,7 +111,7 @@ function startTimer() {
          ${progressTotalValue-progressReducer}deg, var(--navy-blue) 0deg)`;
 
         // get previous seconds when paused
-        let secondsTextN = 60 - interval;
+        let secondsTextN = 60 - interval % 60;
 
         if (secondsTextN < 60) {
             secondsText.textContent = secondsTextN.toLocaleString("en-US", {
@@ -157,7 +157,7 @@ function resumeTimer() {
          ${progressTotalValue-progressReducer}deg, var(--navy-blue) 0deg)`;
 
         // get previous seconds when paused
-        let secondsTextN = 60 - interval;
+        let secondsTextN = 60 - interval % 60;
 
         if (secondsTextN < 60) {
             secondsText.textContent = secondsTextN.toLocaleString("en-US", {
@@ -200,14 +200,15 @@ function restartTimer() {
 
     timer = setInterval(() => {
         let progressReducer = interval / totalSeconds * 360;
-
+        
         progressCircle.style.background = `conic-gradient(var(--default-color)
          ${progressTotalValue-progressReducer}deg, var(--navy-blue) 0deg)`;
 
         // get previous seconds when paused
-        let secondsTextN = 60 - interval;
+        let secondsTextN = 60 - interval % 60;
+        console.log(secondsTextN, 90);
         if (secondsTextN < 60) {
-            secondsText.textContent = secondsText.toLocaleString("en-US", {
+            secondsText.textContent = secondsTextN.toLocaleString("en-US", {
                 minimumIntegerDigits: 2,
                 useGrouping: false
             });
@@ -223,7 +224,7 @@ function restartTimer() {
             });
         }
         interval++;
-        console.log(progressReducer);
+        
 
         if (progressReducer >= progressTotalValue) {
             clearInterval(timer);
